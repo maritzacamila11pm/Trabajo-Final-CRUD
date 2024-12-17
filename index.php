@@ -63,7 +63,8 @@ $router->add('POST', 'auth/register', 'AuthController', 'register');
 $router->add('GET', '/home', 'HomeController', 'index');
 /// CRUD TAREAS 
 $router->add('GET', 'tarea/', 'TareaController', 'index');
-$router->add('GET', 'tarea/obtener', 'TareaController', 'obtenerTarea');
+$router->add('GET', '/tarea/obtener-tarea', 'TareaController', 'obtenerTarea');
+$router->add('POST', '/tarea/guardar-tarea', 'TareaController', 'guardarTarea');
 
 //Despachar la ruta
 try {

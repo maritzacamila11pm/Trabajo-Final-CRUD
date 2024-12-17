@@ -66,6 +66,8 @@
         .modal-footer .btn-danger {
             background-color: #e74c3c;
         }
+      
+
     </style>
 </head>
 <body>
@@ -135,12 +137,13 @@
                     <th>Equipo</th>
                     <th>Responsable</th>
                     <th>Tarea</th>
+                    <th>Fase</th>
                     <th>Descripción</th>
                     <th>Fecha Límite</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody id="taskTableBody">
+            <tbody id="taskTableBody" >
                 <!-- Aquí se llenarán las tareas dinámicamente -->
             </tbody>
         </table>
@@ -154,12 +157,12 @@
     </nav>
 
     <!-- Modal para Crear/Editar Tarea -->
-    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal fade" id="taskModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="taskModalLabel">Nueva Tarea</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
                 </div>
                 <div class="modal-body">
                     <form id="taskForm">
@@ -177,6 +180,10 @@
                             <input type="text" class="form-control" id="tarea" required>
                         </div>
                         <div class="mb-3">
+                            <label for="tarea" class="form-label">Tarea</label>
+                            <input type="text" class="form-control" id="fase" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="descripcion" class="form-label">Descripción</label>
                             <textarea class="form-control" id="descripcion" rows="3"></textarea>
                         </div>
@@ -190,21 +197,22 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times"></i> Cerrar
                     </button>
-                    <button type="button" id="saveTaskBtn" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Guardar
-                    </button>
+                   
+                    <button type="button" class="btn btn-success" onclick="guardarTarea()">
+                    <i class="fas fa-save"></i> Guardar
+                </button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal de Confirmación para Eliminar -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
                     <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminación</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <p>¿Está seguro de que desea eliminar esta tarea?</p>

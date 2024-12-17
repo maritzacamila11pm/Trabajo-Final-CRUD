@@ -6,6 +6,7 @@ class Tarea {
     public $equipo;
     public $responsable;
     public $tarea;
+    public $fase;
     public $descripcion;
     public $fecha_limite;
 
@@ -20,23 +21,24 @@ class Tarea {
         return $stmt;
         
     }
-    // public function crearTarea() {
-    //     $query = "INSERT INTO tareas 
-    //             (equipo, responsable, tarea, descripcion,fecha_limite) 
-    //             VALUES (:equipo, :responsable, :tarea, :descripcion, :fecha_limite)";
+     public function crearTarea() {
+         $query = "INSERT INTO tareas 
+                 (equipo, responsable, tarea, fase, descripcion,fecha_limite) 
+                 VALUES (:equipo, :responsable, :tarea,:fase, :descripcion, :fecha_limite)";
         
-    //     $stmt = $this->conn->prepare($query);
+         $stmt = $this->conn->prepare($query);
 
-    //     $stmt->bindParam(':equipo', $this->equipo);
-    //     $stmt->bindParam(':responsable', $this->responsable);
-    //     $stmt->bindParam(':tarea', $this->tarea);
-    //     $stmt->bindParam(':descripcion', $this->descripcion);
-    //     $stmt->bindParam(':fecha_limite', $this->fecha_limite);
+         $stmt->bindParam(':equipo', $this->equipo);
+         $stmt->bindParam(':responsable', $this->responsable);
+         $stmt->bindParam(':tarea', $this->tarea);
+         $stmt->bindParam(':fase', $this->fase);
+         $stmt->bindParam(':descripcion', $this->descripcion);
+         $stmt->bindParam(':fecha_limite', $this->fecha_limite);
 
-    //     if($stmt->execute()) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
+         if($stmt->execute()) {
+             return true;
+         }
+         return false;
+     }
     
 }
